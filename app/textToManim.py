@@ -6,10 +6,11 @@ from api import GPT, Example, UIConfig
 from api import demo_web_app
 from glob import glob
 def read_file(path_to_file):
-	retval = ""	
+	retval = ""
 	file = open(path_to_file)
-	retval = file.read()
+	retval = file.readlines()
 	file.close()
+	retval = [x.split("/n")[0] for x in retval]
 	return retval
 
 # Construct GPT object and show some examples
@@ -37,12 +38,16 @@ gpt.add_example(Example('f of n equals 1 over (b-a) if n is 0 otherwise 5',
 #source_folder = "./Training_Samples/source/"
 #target_folder = "./Training_Samples/target/"
 source_names = [item for item in sorted(glob("./Training_Example/sources/*"))]
-target_names = source_names = [item for item in sorted(glob("./Training_Example/targets/*"))]
-print(source_names)
+target_names = source_names = [item for item in sorted(glob("./Training_Example/latex/*"))]
+#print(source_names)
+# open each file in the Training_Example directory
 for src_path, target_path in zip(source_names,target_names):
+	# For each files read the RAW and corrosponding Latex Code
 	src_RAW = read_file(src_path)
 	target_RAW = read_file(target_path)
-	gpt.add_example(Example(src_RAW,target_RAW))
+	# for each pair of RAW and latex prime the GPT model
+	for s_RAW, t_RAW in zip(src_RAW,target_RAW):
+		gpt.add_example(Example(s_RAW,t_RAW))
 	#print (src_RAW)
 	#print( "--------------------------")
 	#print (target_RAW)
