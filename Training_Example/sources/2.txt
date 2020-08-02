@@ -1,14 +1,21 @@
 Input,  :=: 
 solve x^2 + 9 = 12
- 
+----  
 Result,  :=: 
 x = ± sqrt(3)
- 
+----  
 Result, Possible intermediate steps :=: 
+---- 
 Solve for x:
+---- 
 x^2 + 9 = 12
+---- 
 Subtract 9 from both sides:
+---- 
 x^2 = 3
+---- 
 Take the square root of both sides:
+---- 
 Answer: | 
  | x = sqrt(3) or x = -sqrt(3)
+---- 
