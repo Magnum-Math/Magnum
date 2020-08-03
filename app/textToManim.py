@@ -15,7 +15,7 @@ def read_file(path_to_file):
 
 # Construct GPT object and show some examples
 gpt = GPT(engine="davinci",
-          temperature=0.4,
+          temperature=0.3,
           max_tokens=300)
 """
 gpt.add_example(Example('Two plus two equals four', '2 + 2 = 4'))

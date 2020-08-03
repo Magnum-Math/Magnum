@@ -3,7 +3,7 @@ def generateTexMobject(line):
     return retval
 
 def latex2Manim(latexArr):
-    retval = 'class Solution(Scene):\n\tdef construct(self):\n\t\t'
+    retval = 'from manimlib.imports import *\nclass Solution(Scene):\n\tdef construct(self):\n\t\t'
     if len(latexArr) > 2 :
         retval = retval + 'Solve' + generateTexMobject(latexArr[0])
         retval = retval + 'Solve.to_edge(UP)\n\t\t'+'self.play(Write(Solve))\n\t\t'
@@ -26,8 +26,8 @@ def readFile2Array(path_to_file):
 	retval = file.readlines()
 	file.close()
 	return retval
-    
-"""
+
+
 src = './2.txt'
 
 latex = readFile2Array(src)
@@ -36,4 +36,3 @@ for line in latex:
     print(line,end="")
 print ("")
 print(latex2Manim(latex))
-"""
