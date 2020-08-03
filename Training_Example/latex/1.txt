@@ -1,23 +1,11 @@
 Solve \ x + 2 = 10
-----
 Result \ x = 8
-----
 Result, \ Possible \ intermediate \ steps \ :=: 
-----
 Solve \ for \ x:
-----
 x + 2 = 10
-----
 Subtract \ 2 \ from \ both \ sides:
-----
 x + (2 - 2) = 10 - 2
-----
 2 - 2 = 0:
-----
 x = 10 - 2
-----
 10 - 2 = 8:
-----
 Answer \ : x = 8
-----
--//-
