@@ -27,7 +27,7 @@ def readFile2Array(path_to_file):
 	file.close()
 	return retval
 
-
+"""
 src = './2.txt'
 
 latex = readFile2Array(src)
@@ -36,3 +36,4 @@ for line in latex:
     print(line,end="")
 print ("")
 print(latex2Manim(latex))
+"""

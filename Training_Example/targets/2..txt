@@ -1,3 +1,4 @@
+from manimlib.imports import *
 class Solution(Scene):
     def construct(self):
         Solve = TexMobject(r"Solve \ x^{2} + 9 = 12")
