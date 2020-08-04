@@ -1,0 +1,31 @@
+Steps to make this run:
+
+1. Install untangle using:
+
+        python -m pip install untangle
+
+2. Start the python interpreter and import apiWrapper.
+
+        import apiWrapper
+
+   You can also import is as something for convinience.
+
+3. Use the apiWrapper.getUsrQues() function to get the user's input.
+
+        apiWrapper.getUsrQues(inStr, textBool, stepBool)
+
+   Where inStr is the user's input string.
+   textBool and stepBool specify if the API's output should be plaintext and if it should show step respectively.
+
+4. Use apiWrapper.callApi() function to send the input to the API.
+
+        apiWrapper.callApi()
+
+   This returns a tuple containing a dictionary object with keys as tuples and their values plaintext and two strings with the steps and the interpreted question:
+   
+        ({ (podid, subpod title) : 'plaintext'...}, steps, qeus)
+
+   Use this output for whatever purposes you want.
+
+
+Alternatively, docMaker.py does this for you automatically, but only returns the steps
