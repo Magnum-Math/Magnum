@@ -8,9 +8,7 @@ Solve \ \frac{d^2 \ y\left(x\right)}{dx^2} \ + \ y\left(x\right) \ = \ 0:
 Assume \ a \ solution \ will \ be \ proportional \ to \ e^\left(\lambda \ x\right) \ for \ some \ constant \ \lambda.
 Substitute \ y\left(x\right) \ = \ e^\left(\lambda \ x\right) \ into \ the \ differential \ equation:
 \frac{d^2 \left(e^\left(\lambda x\right)\right)}{dx^2} + e^\left(\lambda x\right) = 0
-Substitute \ \frac{d^2 \ \left(e^\left(\lambda \ x\right)\right)}{dx^2} \ = \ \lambda^2 \ e^\left(\lambda \ x\right):
 The \ roots \ \lambda \ = \ \pm \ \iota \ give \ y_1\left(x\right) \ = \ c_1 \ e^\left(\iota \ x\right), \ y_2\left(x\right) \ = \ c_2 \ e^\left(-\iota \ x\right) \ as \ solutions, \ where \ c_1 \ and \ c_2 \ are \ arbitrary \ constants.
-The \ general \ solution \ is \ the \ sum \ of \ the \ above \ solutions:
 y\left(x\right) = y_1\left(x\right) + y_2\left(x\right) = c_1 e^\left(\iota x\right) + c_2 e^\left(-\iota x\right)
 Apply \ Euler's \ identity \ e^\left(α \ + \ \iota \ β\right) \ = \ e^α \ cos\left(β\right) \ + \ \iota \ e^α \ \sin\left(β\right):
 y\left(x\right) = c_1 \left(cos\left(x\right) + \iota \ sin\left(x\right)\right) + c_2 \left(cos\left(x\right) - \iota \ sin\left(x\right)\right)
