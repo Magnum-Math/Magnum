@@ -3,6 +3,7 @@
 *venv*
 
 *pycache*
+*.ipynb_checkpoints*
 
 # dependencies
 /node_modules
@@ -14,7 +15,8 @@
 
 # production
 /build
-
+/media
+/Animations
 # misc
 .DS_Store
 .env.local
