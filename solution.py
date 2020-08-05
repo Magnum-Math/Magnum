@@ -1,50 +1,31 @@
 from manimlib.imports import *
-class Solution(Scene):
+from math import *
+class Solution(GraphScene):
+	CONFIG = {
+		'graph_origin': ORIGIN,
+		'function_color': WHITE,
+		'axes_color': BLUE,
+		'x_min':	-10,
+		'x_max':	10,
+		'x_labeled_nums' :range(-10,10, 2),
+		'y_min':	-10,
+		'y_max':	10,
+		'y_labeled_nums' :range(-10,10,2)}
+
 	def construct(self):
-		Solve = TexMobject(r" Solve \ for \ x:")
-		Solve.to_edge(UP)
-		self.play(Write(Solve))
-		self.wait(2)
-		R0 = TexMobject(r" x^2 + 2 x + 3 = 0")
+		watermark = ImageMobject("./assets/water_mark.png")
+		watermark.scale(1.5)
+		watermark.to_corner(DOWN+RIGHT, buff=0)
+		self.play(FadeIn(watermark))
+		R0 = TexMobject(r" plot \ x")
 		self.play(Write(R0))
 		self.wait(2)
-		R1 = TexMobject(r" Subtract \ 3 \ from \ both \ sides:")
-		self.play(Transform(R0,R1))
-		self.wait(2)
-		R1 = TexMobject(r" x^2 + 2 x = -3")
-		self.play(Transform(R0,R1))
-		self.wait(2)
-		R1 = TexMobject(r" Add \ 1 \ to \ both \ sides:")
-		self.play(Transform(R0,R1))
-		self.wait(2)
-		R1 = TexMobject(r" x^2 + 2 x + 1 = -2")
-		self.play(Transform(R0,R1))
-		self.wait(2)
-		R1 = TexMobject(r" Write \ the \ left \ hand \ side \ as \ a \ square:")
-		self.play(Transform(R0,R1))
-		self.wait(2)
-		R1 = TexMobject(r" (x + 1)^2 = -2")
-		self.play(Transform(R0,R1))
-		self.wait(2)
-		R1 = TexMobject(r" Take \ the \ square \ root \ of \ both \ sides:")
-		self.play(Transform(R0,R1))
-		self.wait(2)
-		R1 = TexMobject(r" x + 1 = \sqrt{2} \ or -\sqrt{2}")
-		self.play(Transform(R0,R1))
-		self.wait(2)
-		R1 = TexMobject(r" Subtract \ 1 \ from \ both \ sides:")
-		self.play(Transform(R0,R1))
-		self.wait(2)
-		R1 = TexMobject(r" x = \sqrt{2} - \sqrt{2} or \ x + \sqrt{2} = -\sqrt{2}")
-		self.play(Transform(R0,R1))
-		self.wait(2)
-		R1 = TexMobject(r" Subtract \ 1 \ from \ both \ sides:")
-		self.play(Transform(R0,R1))
-		self.wait(2)
-		R1 = TexMobject(r" Answer \ : x = \pm i \sqrt{2} - 1 \ or \ -\i \sqrt{2} - 1")
-		self.play(Transform(R0,R1))
-		self.wait(2)
-		R1 = TexMobject(r" ")
-		self.play(Transform(R0,R1))
-		self.wait(2)
 		self.play(FadeOut(R0))
+		self.setup_axes(animate=True)
+		func_graph = self.get_graph(self.func, self.function_color)
+		self.play(FadeIn(func_graph))
+		self.wait(2)
+		
+	def func(self, x):
+		f = x
+		return f
