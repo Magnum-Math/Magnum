@@ -5,15 +5,19 @@
 
 
 import openai
-openai.api_key = "sk-Qgz3rmm3AbTBIwPjA0voHN3llTPWlsBPsNc8fUAd"
+openai.api_key = "***REMOVED***"
 
 
-# In[8]:
+# In[2]:
 
 
 from app import apiWrapper
 print("Enter Input Question")
 qry = input()
+qry += " "
+while qry.isspace():
+    qry = input("Enter Input Question")
+
 print("Would you like to print intermediate code results? yes/no")
 selection = input()
 while selection not in ["yes", "no"]:
@@ -26,7 +30,7 @@ print("Query Received is ", Query)
 print("Solution Generated")
 
 
-# In[9]:
+# In[3]:
 
 
 if selection == "yes":
@@ -34,7 +38,7 @@ if selection == "yes":
         print(line)
 
 
-# In[10]:
+# In[4]:
 
 
 import os
@@ -78,25 +82,15 @@ for src_path, target_path in zip(source_names,target_names):
 
     for s_RAW, t_RAW in zip(src_RAW,target_RAW):
         gpt.add_example(Example(s_RAW,t_RAW))
-        
         # Uncomment the following if you would like to see the priming examples
-        """
-        print("Source: ", s_RAW)
-        print("Output: ", t_RAW)
-        print("----")
-        """
-
-"""
-# Define UI configuration
-config = UIConfig(description="Text to Manim Class",
-                  button_text="Convert",
-                  placeholder="Type Raw Text here")
-
-demo_web_app(gpt, config)
-"""
+        #print("Source: ", s_RAW)
+        #print("Output: ", t_RAW)
+        #print("----")
+        
+print("")
 
 
-# In[11]:
+# In[5]:
 
 
 ## Testing Script
@@ -111,9 +105,10 @@ for file in testFiles:
         print(t,end="----\n")
         response.append(t)
 """
+print("")
 
 
-# In[13]:
+# In[6]:
 
 
 # Converting RAW_TEXT to Latex:
@@ -125,15 +120,19 @@ for line in RAW_TEXT :
 print("Intermediate LateX generated")
 
 
-# In[14]:
+# In[7]:
 
 
 latex_code = []
 for line in response:
-    latex_code.append(line.split("\n")[0][7:] + "\n")
+    text = line.split("\n")[0][7:]
+    if text.isspace() or text == "":
+        continue
+    else:
+        latex_code.append(text + "\n")
 
 
-# In[15]:
+# In[8]:
 
 
 if selection == "yes":
@@ -141,18 +140,20 @@ if selection == "yes":
         print(line, end="")
 
 
-# In[17]:
+# In[13]:
 
 
 from app import latex2Manim
+#import importlib
+#importlib.reload(latex2Manim)
 print("Converting Latex to Maxnim Code")
-manim_code = latex2Manim.latex2Manim(latex_code)
+manim_code = latex2Manim.latex2Manim(latex_code,qry, "x")
 if selection == "yes":
     print(manim_code)
 print("Manim Code Generated")
 
 
-# In[18]:
+# In[14]:
 
 
 fptr =  open("solution.py", "w") 
@@ -161,7 +162,13 @@ fptr.close()
 print("Manim Code saved at ./solution.py")
 
 
-# In[26]:
+# In[15]:
+
+
+#!manim solution.py Solution -pl --media_dir "./Animations"
+
+
+# In[ ]:
 
 
 import os
@@ -173,7 +180,7 @@ else:
     print("Animation Error Check Manim Logs!!")
 
 
-# In[10]:
+# In[ ]:
 
 
 """
@@ -199,11 +206,31 @@ for path_to_file in target_names:
 """
 
 
-# In[11]:
+# In[ ]:
 
 
 """for l in retval:
     print (l)"""
+
+
+# In[ ]:
+
+
+def func(x_in):
+		f = lambda x : eval(x_in)
+		return f
+
+
+# In[ ]:
+
+
+a = func('x**2')
+
+
+# In[ ]:
+
+
+[a(i) for i in range(5)]
 
 
 # In[ ]:
