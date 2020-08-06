@@ -26,14 +26,14 @@ def generateTexMobject(line):
 
 def latex2Manim(latexArr,query,func):
     graph = False
-    if "plot" in list(query.split(" ")) or 1:
+    if "plot" in list(query.split(" ")):
         graph = True
         print("A Graph will be generated")
     else:
         graph = False
         print("A Graph will not be generated")
     retval = 'from manimlib.imports import *\nfrom math import *\n'
-    if graph == True:
+    if graph == True or 1:
         retval += 'class Solution(GraphScene):'
     else:
         retval = 'class Solution(Scene):'
@@ -52,7 +52,7 @@ def latex2Manim(latexArr,query,func):
         for i in range(3):
             if sol_length > i:
                 if i == 0:
-                    retval = retval + 'R' + str(i) + '.shift([0,0.8,0])\n\t\t'
+                    retval = retval + 'R' + str(i) + '.shift([0,0.7,0])\n\t\t'
                     retval = retval + 'self.play(Write(R'+ str(i) +'))\n\t\tself.wait(1)\n\t\t'
                     #second_line.shift(3*DOWN)
                 else:
@@ -63,7 +63,7 @@ def latex2Manim(latexArr,query,func):
 
         for i in range(3,sol_length):
             retval = retval + "self.play(FadeOut(R"+ str(i-3) +"))\n\t\t"
-            retval = retval + 'self.play(ApplyMethod(R' + str(i-2) + '.shift,[0,0.8,0]))\n\t\t'
+            retval = retval + 'self.play(ApplyMethod(R' + str(i-2) + '.shift,[0,0.7,0]))\n\t\t'
             retval += "self.play(ApplyMethod(R"+str(i-1)+".next_to,R" + str(i-2) +", DOWN))\n\t\t"
             retval += 'R' + str(i) + ".next_to(R"+ str(i-1) +", DOWN)\n\t\t"
             retval = retval + 'self.play(Write(R'+ str(i) +'))\n\t\t'
