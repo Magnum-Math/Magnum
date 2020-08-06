@@ -1,0 +1,7 @@
+openai==0.2.4
+pylint==2.5.3
+requests==2.24.0
+urllib3==1.25.9
+tqdm
+untangle
+manim
