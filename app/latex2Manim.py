@@ -28,17 +28,24 @@ def latex2Manim(latexArr,query,func):
     graph = False
     if "plot" in list(query.split(" ")):
         graph = True
-        print("A Graph will be generated")
+        print("A Graph will be generated automatically")
     else:
         graph = False
-        print("A Graph will not be generated")
-    retval = 'from manimlib.imports import *\nfrom math import *\n'
-    if graph == True or 1:
-        retval += 'class Solution(GraphScene):'
-    else:
-        retval = 'class Solution(Scene):'
+        print("Do you want to generate a graph for {}? yes/no".format(query))
+        selection = input()
+        while selection not in ["yes", "no"]:
+            selection = input()
+            print("Would you like to print intermediate code results? yes/no")
+        if selection == "yes":
+            graph == True
 
-    retval += generate_config(func)
+        
+    retval = 'from manimlib.imports import *\nfrom math import *\n'
+    retval += 'class Solution(GraphScene):'
+    if graph == True:
+        retval += generate_config(func)
+    
+
     retval += '\n\tdef construct(self):'
     retval += watermark
     sol_length = len(latexArr) - 1 # 1st line is the question
@@ -119,11 +126,13 @@ def generate_config(func,x_range=[-10,10]):
 	config += "\t\t'x_min':\t" + str(x_range[0]) +",\n"
 	config += "\t\t'x_max':\t" + str(x_range[1]) +",\n"
 	config += "\t\t'x_labeled_nums' :range("+ str(x_range[0]) + "," + str(x_range[1]) + ", 2),\n"
-	y_vals = [f(t) for t in range(x_range[0],x_range[1]+1)]
-	y_range = [math.floor(min(y_vals)),math.floor(max(y_vals))]
+	y_vals = [f(t) for t in range(x_range[0],x_range[1]+1)]   
+	y_lim = max(abs(math.floor(min(y_vals))),abs(math.floor(max(y_vals))))
+	y_range = [-1*y_lim,y_lim]                
 	config += "\t\t'y_min':\t" + str(y_range[0]) +",\n"
 	config += "\t\t'y_max':\t" + str(y_range[1]) +",\n"
-	marking_distance = (y_range[1] - y_range[0])//10
+	marking_distance = math.ceil((y_range[1] - y_range[0])/10)
+    
 	#print(marking_distance)
 	config += "\t\t'y_labeled_nums' :range("+ str(y_range[0]) + "," + str(y_range[1]) + "," + str(marking_distance) + ")}\n"
 	return config
