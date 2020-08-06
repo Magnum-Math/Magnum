@@ -26,8 +26,8 @@ def generateTexMobject(line):
 
 def latex2Manim(latexArr,query,func):
 	graph = False
-	if "plot" in list(query.split(" ")):
-		graph = True 
+	if "plot" in list(query.split(" ")) or 1:
+		graph = True
 		print("A Graph will be generated")
 	else:
 		graph = False
@@ -42,17 +42,32 @@ def latex2Manim(latexArr,query,func):
 	retval += '\n\tdef construct(self):'
 	retval += watermark
 
-	if len(latexArr) > 2 :
+	if len(latexArr) >= 1 :
 		retval = retval + 'Solve' + generateTexMobject(latexArr[0])
 		retval = retval + 'Solve.to_edge(UP)\n\t\t'+'self.play(Write(Solve))\n\t\t'
 		retval = retval + 'self.wait(2)\n\t\t'
-		retval = retval + 'R0' + generateTexMobject(latexArr[1])
-		retval = retval + 'self.play(Write(R0))\n\t\tself.wait(2)\n\t\t'
-		
-		for i in range(2,len(latexArr)):
-			if not latexArr[i].isspace(): 
-				retval = retval + 'R1' + generateTexMobject(latexArr[i])
-				retval = retval + 'self.play(Transform(R0,R1))\n\t\tself.wait(2)\n\t\t'
+        for i in range(1, len(latexArr)):
+            retval = retval + 'R'+ str(i-1) + generateTexMobject(latexArr[i])
+            retval = retval + 'R'+ str(i-1) + ".shift(2*DOWN)\n\t\t"
+        for i in range(3):
+            if len(latexArr) > i+1:
+                if i == 0:
+                    retval = retval + 'self.play(Write(R'+ str(i) +'))\n\t\tself.wait(2)\n\t\t'
+                    #second_line.shift(3*DOWN)
+                    retval = retval + 'R' + str(i) + '.shift(2*UP)'
+                else:
+                    retval += 'R' + str(i) + ",next_to(R"+ str(i-1) +", DOWN)"
+                    retval = retval + 'self.play(Write(R'+ str(i) +'))\n\t\tself.wait(2)\n\t\t'
+            else:
+                break
+
+		for i in range(4,len(latexArr)):
+
+            retval = retval + "self.play(FadeOut(R"+ str(i-3) +"))"
+            retval = retval + 'self.play(ApplyMethod(R' + str(i-2) + '.shift,2*UP))'
+            retval += "self.play(ApplyMethod(R"+str(i-2)+".shift,2*UP))"
+            retval = retval + 'self.play(Write(R'+ str(i) +'))\n\t\tself.wait(2)\n\t\t'
+			#retval = retval + 'self.play(\n\t\tself.wait(2)\n\t\t'
 
 		if graph == True:
  			retval += construct_graph
@@ -60,13 +75,16 @@ def latex2Manim(latexArr,query,func):
 		if graph != True:
 			raise Exception('Latex array has no steps')
 		else:
-			retval += "R0" + generateTexMobject(latexArr[0])
-			retval += 'self.play(Write(R0))\n\t\tself.wait(2)\n\t\tself.play(FadeOut(R0))\n\t\t'
+			#retval += "R0" + generateTexMobject(latexArr[0])
+			#retval += 'self.play(Write(R0))\n\t\tself.wait(2)\n\t\tself.play(FadeOut(R0))\n\t\t'
 			retval += construct_graph
 
-	if graph != True:
-		retval = retval + 'self.play(FadeOut(R0))'
+	#if graph != True:
+		#retval = retval + 'self.play(FadeOut(R0))'
 
+    ## Fade out every step
+    for i in range(len(latexArr),len(latexArr)-3,-1):
+        retval += 'self.play(FadeOut(R'+ str(i) +'))\n\t\t'
 	if graph == True:
 		retval = retval + makeGraph(func)
 	return retval
