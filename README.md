@@ -1,4 +1,4 @@
-# AI MATH Animator powered by GPT-3 and Wolfram Alpha
+# AI Math Animator powered by GPT-3 and Wolfram Alpha
 ## Visualize Math solutions 
 
 Initial release date: 8 Aug 2020
@@ -30,10 +30,7 @@ Coding-wise, you only need Python. But for the app to run, you will need:
 * Wolfram Alpha API-Key
 
 Instructions to install Python 3 are [here](https://realpython.com/installing-python/)
-Rest of the requirments are in requirements.txt and can be installed with 
-'''python
-pip3 install -r requirements.txt
-'''
+Rest of the requirments are in requirements.txt
 
 ## Setup
 
