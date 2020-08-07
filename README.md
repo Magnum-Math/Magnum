@@ -39,7 +39,8 @@ First, clone or fork this repository. Then to set up your virtual environment, d
 1. Create a virtual environment in the root directory: `python -m venv $ENV_NAME`
 2. Activate the virtual environment: ` source $ENV_NAME/bin/activate` (for MacOS, Unix, or Linux users) or ` .\ENV_NAME\Scripts\activate` (for Windows users)
 3. Install requirements: `pip install -r requirements.txt`
-4. To add your secret key: create a file anywhere on your computer called `openai.cfg` with the contents `OPENAI_KEY=$YOUR_SECRET_KEY`, where `$YOUR_SECRET_KEY` looks something like `'sk-somerandomcharacters'` (including quotes). If you are unsure what your secret key is, navigate to the [API docs](https://beta.openai.com/developer-quickstart) and copy the token displayed next to the "secret" key type.
+4. To add your openai secret key: open the file called `openai` int the `api_keys` folder and add your seceret key there `$YOUR_SECRET_KEY`, where `$YOUR_SECRET_KEY` looks something like `'sk-somerandomcharacters'` (excluding quotes). If you are unsure what your secret key is, navigate to the [API docs](https://beta.openai.com/developer-quickstart) and copy the token displayed next to the "secret" key type.
+5. To add your wolfram alpha secret key: open the file called `appid` int the `api_keys` folder and add your seceret key there `$YOUR_SECRET_KEY`, where `$YOUR_SECRET_KEY` looks something like `'ZHR$%D-GET$%ASBF$'` (excluding quotes).
 
 
 ## Interactive Priming
