@@ -13,7 +13,7 @@ config = """
 
 construct_graph = """self.setup_axes(animate=True)
 \t\tfunc_graph = self.get_graph(self.func, self.function_color)
-\t\tself.play(FadeIn(func_graph))
+\t\tself.play(ShowCreation(func_graph))
 \t\tself.wait(2)\n\t\t"""
 
 watermark="""\n\t\twatermark = ImageMobject("./assets/water_mark.png")
@@ -39,27 +39,29 @@ def latex2Manim(latexArr,query,func):
         if selection == "yes":
             graph == True
 
-        
+
     retval = 'from manimlib.imports import *\nfrom math import *\n'
     retval += 'class Solution(GraphScene):'
     if graph == True:
         retval += generate_config(func)
-    
+
 
     retval += '\n\tdef construct(self):'
     retval += watermark
+    #retval += "align_mark = TextMobject( 'abs', height = 1 , width = 1, fill_opacity=0)\n\t\talign_mark.next_to(Solve,2*DOWN)\n\t\t"
     sol_length = len(latexArr) - 1 # 1st line is the question
     if len(latexArr) >= 1 :
         retval = retval + 'Solve' + generateTexMobject(latexArr[0])
         retval = retval + 'Solve.to_edge(UP)\n\t\t'+'self.play(Write(Solve))\n\t\t'
-        retval = retval + 'self.wait(2)\n\t\t'
+        retval += "align_mark = TextMobject( 'abs', fill_opacity=1)\n\t\talign_mark.to_edge(UP)\n\t\talign_mark.move_to(2*DOWN)\n\t\talign_mark.add()\n\t\t"
+        retval = retval + 'self.wait(1)\n\t\t'
         for i in range(1, len(latexArr)):
             retval = retval + 'R'+ str(i-1) + generateTexMobject(latexArr[i])
-            #retval = retval + 'R'+ str(i-1) + ".shift(2*DOWN)\n\t\t"
+            retval = retval + 'if R'+ str(i-1) + ".get_width() > 30:\n\t\t\tR"+ str(i-1) + ".stretch_to_fit_width(width=30)\n\t\t"
         for i in range(3):
             if sol_length > i:
                 if i == 0:
-                    retval = retval + 'R' + str(i) + '.shift([0,0.7,0])\n\t\t'
+                    retval = retval + 'R' + str(i) + '.next_to(align_mark,DOWN)\n\t\t'
                     retval = retval + 'self.play(Write(R'+ str(i) +'))\n\t\tself.wait(1)\n\t\t'
                     #second_line.shift(3*DOWN)
                 else:
@@ -70,12 +72,12 @@ def latex2Manim(latexArr,query,func):
 
         for i in range(3,sol_length):
             retval = retval + "self.play(FadeOut(R"+ str(i-3) +"))\n\t\t"
-            retval = retval + 'self.play(ApplyMethod(R' + str(i-2) + '.shift,[0,0.7,0]))\n\t\t'
+            retval = retval + 'self.play(ApplyMethod(R' + str(i-2) + '.next_to,align_mark,DOWN))\n\t\t'
             retval += "self.play(ApplyMethod(R"+str(i-1)+".next_to,R" + str(i-2) +", DOWN))\n\t\t"
             retval += 'R' + str(i) + ".next_to(R"+ str(i-1) +", DOWN)\n\t\t"
             retval = retval + 'self.play(Write(R'+ str(i) +'))\n\t\t'
             #retval = retval + 'self.play(\n\t\tself.wait(2)\n\t\t'
-        
+
         ## Fade out every step
         for i in range(sol_length-1,sol_length-4,-1):
             if i >= 0:
@@ -126,13 +128,13 @@ def generate_config(func,x_range=[-10,10]):
 	config += "\t\t'x_min':\t" + str(x_range[0]) +",\n"
 	config += "\t\t'x_max':\t" + str(x_range[1]) +",\n"
 	config += "\t\t'x_labeled_nums' :range("+ str(x_range[0]) + "," + str(x_range[1]) + ", 2),\n"
-	y_vals = [f(t) for t in range(x_range[0],x_range[1]+1)]   
+	y_vals = [f(t) for t in range(x_range[0],x_range[1]+1)]
 	y_lim = max(abs(math.floor(min(y_vals))),abs(math.floor(max(y_vals))))
-	y_range = [-1*y_lim,y_lim]                
+	y_range = [-1*y_lim,y_lim]
 	config += "\t\t'y_min':\t" + str(y_range[0]) +",\n"
 	config += "\t\t'y_max':\t" + str(y_range[1]) +",\n"
 	marking_distance = math.ceil((y_range[1] - y_range[0])/10)
-    
+
 	#print(marking_distance)
 	config += "\t\t'y_labeled_nums' :range("+ str(y_range[0]) + "," + str(y_range[1]) + "," + str(marking_distance) + ")}\n"
 	return config
