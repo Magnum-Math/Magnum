@@ -1,11 +1,14 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[1]:
+# In[13]:
 
 
 import openai
-openai.api_key = "sk-8fuZdYFOxSDQDfi3nbwhGH3fOJzZFDiezVwvIPBc"
+from pathlib import Path
+data_folder = Path(os.getcwd())
+openai.api_key = open(data_folder / 'api_keys/openai').readline().rstrip('\n')
+print(data_folder)
 
 
 # In[2]:
@@ -39,15 +42,14 @@ if selection == "yes":
         print(line)
 
 
-# In[4]:
+# In[16]:
 
 
 import os
 import sys
 sys.path.append(os.getcwd())
 
-from api import GPT, Example, UIConfig
-from api import demo_web_app
+from api import GPT, Example
 from glob import glob
 def read_file(path_to_file):
     retval = ""
@@ -66,8 +68,8 @@ gpt = GPT(engine="davinci",
 
 
 # reade file and convert it to source string and target string tuples
-source_names = [item for item in sorted(glob("./Training_Example/text2latex/sources/*"))]
-target_names = [item for item in sorted(glob("./Training_Example/text2latex/latex/*"))]
+source_names = [item for item in sorted(glob(str(data_folder / "Training_Example/text2latex/sources/*")))]
+target_names = [item for item in sorted(glob( str(data_folder / "Training_Example/text2latex/latex/*")))]
 
 
 # open each file in the Training_Example directory
@@ -88,18 +90,16 @@ for src_path, target_path in zip(source_names,target_names):
         #print("Output: ", t_RAW)
         #print("----")
         
-print("")
 
 
-# In[5]:
+# In[18]:
 
 
 import os
 import sys
 sys.path.append(os.getcwd())
 
-from api import GPT, Example, UIConfig
-from api import demo_web_app
+from api import GPT, Example
 from glob import glob
 def read_file(path_to_file):
     retval = ""
@@ -118,8 +118,8 @@ gpt_py = GPT(engine="davinci",
 
 
 # reade file and convert it to source string and target string tuples
-source_names = [item for item in sorted(glob("./Training_Example/text2py/sources/*"))]
-target_names = [item for item in sorted(glob("./Training_Example/text2py/python/*"))]
+source_names = [item for item in sorted(glob( str(data_folder / "Training_Example/text2py/sources/*")))]
+target_names = [item for item in sorted(glob( str(data_folder / "Training_Example/text2py/python/*")))]
 
 
 # open each file in the Training_Example directory
@@ -143,7 +143,7 @@ for src_path, target_path in zip(source_names,target_names):
 print("")
 
 
-# In[13]:
+# In[19]:
 
 
 # Converting RAW_TEXT Query to Python Function:
@@ -153,7 +153,7 @@ python_func = python_func[7:]
 print("Interpereted python function is", python_func)
 
 
-# In[17]:
+# In[20]:
 
 
 # Converting RAW_TEXT to Latex:
@@ -167,7 +167,7 @@ for i in tqdm(range(len(RAW_TEXT))) :
 print("Intermediate LateX generated")
 
 
-# In[18]:
+# In[21]:
 
 
 latex_code = []
@@ -179,7 +179,7 @@ for line in response:
         latex_code.append(text + "\n")
 
 
-# In[19]:
+# In[22]:
 
 
 if selection == "yes":
@@ -187,7 +187,7 @@ if selection == "yes":
         print(line, end="")
 
 
-# In[27]:
+# In[23]:
 
 
 from app import latex2Manim
@@ -200,27 +200,28 @@ if selection == "yes":
 print("Manim Code Generated")
 
 
-# In[28]:
+# In[25]:
 
 
-fptr =  open("solution.py", "w") 
+fptr =  open(data_folder / "solution.py", "w") 
 fptr.write(manim_code)
 fptr.close()
-print("Manim Code saved at ./solution.py")
-
-
-# In[29]:
-
-
-#!manim solution.py Solution -pl --media_dir "./Animations"
+print("Manim Code saved at {}/solution.py".format(data_folder))
 
 
 # In[ ]:
 
 
+#!manim solution.py Solution -pl --media_dir "./Animations"
+
+
+# In[27]:
+
+
 import os
-print("Starting to Animate")
-retval = os.system('manim solution.py Solution -pl --media_dir "./Animations"')
+print("Starting to Animate. Arguments for manim if any?")
+args = input()
+retval = os.system('manim ' + str(data_folder) + '/solution.py Solution ' + args +' --media_dir ' + str(data_folder) +'"/Animations"')
 if retval == 0:
     print("Animation Completed check ./Animations/video for output")
 else:
