@@ -1,0 +1,12 @@
+x*math.sin(x)
+math.asin(x)
+math.sin(x**2)
+5*x**2 - 2*x + 23
+(math.sin(x))**2 + 2*math.sin(x) + 2
+math.cos(x**3) + (math.tan(x))**2 - x*math.cot(x)
+math.exp(math.sin(x))
+math.sqrt(math.cos(x)**(-1))
+math.sin(x)**(-1)
+10 - x
+(29*x - 104)/19
+43*x**3 - 34*x**2 + 23*x + 21
