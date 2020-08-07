@@ -12,7 +12,7 @@ This project addresses the following issues:
 
 1. Goal1 
 2. Goal2
-Here is a simple example 
+Here is a simple example   
 Note that this repository is currently not intended for production use and has limited capabelities .
 
 ## Background
@@ -74,10 +74,10 @@ Please *do not* leave your secret key in plaintext in your pull request!
 
 The following authors have committed 20 lines or more (ordered according to the Github contributors page):
 
-* (Mayur Selukar)[https://www.linkedin.com/in/mayur-selukar/]
+* [Mayur Selukar](https://www.linkedin.com/in/mayur-selukar/)
 * Shantanu Deshmukh
 * Shreenabh Agrawal
-* (The gpt3-sandbox team)[https://github.com/shreyashankar/gpt3-sandbox]
+* [The gpt3-sandbox team](https://github.com/shreyashankar/gpt3-sandbox)
  
 
 
