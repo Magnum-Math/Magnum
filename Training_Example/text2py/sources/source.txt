@@ -1,0 +1,12 @@
+plot x sin(x)
+plot sin^(-1)(x)
+plot sin(x^2)
+5 x^2 - 2 x + 23 = 0
+plot sin^2(x) + 2 sin(x) + 2
+plot cos(x^3) + tan^2(x) - x cot(x)
+e^sin(x)
+plot sqrt(sec(x))
+plot csc(x)
+plot x + y = 10
+29 x = 19 y + 104 and plot 
+43 x^3 - 34 x^2 + 23 x + 21 and plot 

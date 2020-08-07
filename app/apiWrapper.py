@@ -2,7 +2,10 @@ import app.apiInterface as api, untangle
 
 # Makes an apiInput object from the apiInterface module
 # Reads the appid file to get appid for the api
-apiWrap = api.apiInput(open('./app/appid').readline().rstrip('\n'))
+from pathlib import Path
+data_folder = Path("./")
+
+apiWrap = api.apiInput(open(data_folder / 'api_keys/appid').readline().rstrip('\n'))
 
 rques = ''
 ques = 'NO INPUT'
