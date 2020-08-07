@@ -1,42 +1,19 @@
-# GPT-3 Sandbox: Turn your ideas into demos in a matter of minutes
+# AI MATH Animator powered by GPT-3 and Wolfram Alpha
+## Visualize Math solutions 
 
-Initial release date: 19 July 2020
+Initial release date: 8 Aug 2020
 
+Fork Credits: The [gpt3-sandbox project](https://github.com/shreyashankar/gpt3-sandbox) was taken as the starting point for this project. We would like thank the authons of gp3-sandbox for all there help :)
 ## Description
 
 The goal of this project is to enable users to create cool web demos using the newly released OpenAI GPT-3 API **with just a few lines of Python.** 
 
 This project addresses the following issues:
 
-1. Automatically formatting a user's inputs and outputs so that the model can effectively pattern-match
-2. Creating a web app for a user to deploy locally and showcase their idea
-
-Here's a quick example of priming GPT to convert English to LaTeX:
-
-```
-# Construct GPT object and show some examples
-gpt = GPT(engine="davinci",
-          temperature=0.5,
-          max_tokens=100)
-gpt.add_example(Example('Two plus two equals four', '2 + 2 = 4'))
-gpt.add_example(Example('The integral from zero to infinity', '\\int_0^{\\infty}'))
-gpt.add_example(Example('The gradient of x squared plus two times x with respect to x', '\\nabla_x x^2 + 2x'))
-gpt.add_example(Example('The log of two times x', '\\log{2x}'))
-gpt.add_example(Example('x squared plus y squared plus equals z squared', 'x^2 + y^2 = z^2'))
-
-# Define UI configuration
-config = UIConfig(description="Text to equation",
-                  button_text="Translate",
-                  placeholder="x squared plus 2 times x")
-
-demo_web_app(gpt, config)
-```
-
-Running this code as a python script would automatically launch a web app for you to test new inputs and outputs with. There are already 3 example scripts in the `examples` directory.
-
-You can also prime GPT from the UI. for that, pass `show_example_form=True` to `UIConfig` along with other parameters.
-
-Technical details: the backend is in Flask, and the frontend is in React. Note that this repository is currently not intended for production use.
+1. Goal1 
+2. Goal2
+Here is a simple example 
+Note that this repository is currently not intended for production use and has limited capabelities .
 
 ## Background
 
@@ -50,9 +27,13 @@ Coding-wise, you only need Python. But for the app to run, you will need:
 
 * API key from the OpenAI API beta invite
 * Python 3
-* `yarn`
+* Wolfram Alpha API-Key
 
-Instructions to install Python 3 are [here](https://realpython.com/installing-python/), and instructions to install `yarn` are [here](https://classic.yarnpkg.com/en/docs/install/#mac-stable).
+Instructions to install Python 3 are [here](https://realpython.com/installing-python/)
+Rest of the requirments are in requirements.txt and can be installed with 
+'''python
+pip3 install -r requirements.txt
+'''
 
 ## Setup
 
@@ -60,20 +41,9 @@ First, clone or fork this repository. Then to set up your virtual environment, d
 
 1. Create a virtual environment in the root directory: `python -m venv $ENV_NAME`
 2. Activate the virtual environment: ` source $ENV_NAME/bin/activate` (for MacOS, Unix, or Linux users) or ` .\ENV_NAME\Scripts\activate` (for Windows users)
-3. Install requirements: `pip install -r api/requirements.txt`
+3. Install requirements: `pip install -r requirements.txt`
 4. To add your secret key: create a file anywhere on your computer called `openai.cfg` with the contents `OPENAI_KEY=$YOUR_SECRET_KEY`, where `$YOUR_SECRET_KEY` looks something like `'sk-somerandomcharacters'` (including quotes). If you are unsure what your secret key is, navigate to the [API docs](https://beta.openai.com/developer-quickstart) and copy the token displayed next to the "secret" key type.
-5. Set your environment variable to read the secret key: run `export OPENAI_CONFIG=/path/to/config/openai.cfg` (for MacOS, Unix, or Linux users) or `set OPENAI_CONFIG=/path/to/config/openai.cfg` (for Windows users)
-6. Run `yarn install` in the root directory
 
-If you are a Windows user, to run the demos, you will need to modify the following line inside `api/demo_web_app.py`:
-`subprocess.Popen(["yarn", "start"])` to `subprocess.Popen(["yarn", "start"], shell=True)`
-
-To verify that your environment is set up properly, run one of the 3 scripts in the `examples` directory:
-`python examples/run_latex_app.py`
-
-A new tab should pop up in your browser, and you should be able to interact with the UI! To stop this app, run ctrl-c or command-c in your terminal.
-
-To create your own example, check out the ["getting started" docs](https://github.com/shreyashankar/gpt3-sandbox/blob/master/docs/getting-started.md).
 
 ## Interactive Priming
 
@@ -107,10 +77,10 @@ Please *do not* leave your secret key in plaintext in your pull request!
 
 The following authors have committed 20 lines or more (ordered according to the Github contributors page):
 
-* Shreya Shankar
-* Bora Uyumazturk
-* Devin Stein
-* Gulan
-* Michael Lavelle
+* (Mayur Selukar)[https://www.linkedin.com/in/mayur-selukar/]
+* Shantanu Deshmukh
+* Shreenabh Agrawal
+* (The gpt3-sandbox team)[https://github.com/shreyashankar/gpt3-sandbox]
+ 
 
 
