@@ -16,12 +16,18 @@ construct_graph = """self.setup_axes(animate=True)
 \t\tself.play(ShowCreation(func_graph))
 \t\tself.wait(2)\n\t\t"""
 
-watermark="""\n\t\twatermark = ImageMobject("./assets/water_mark.png")
+watermark="""\n\t\twatermark = ImageMobject("./assets/water_mark.png",opacity=0.7)
 \t\twatermark.scale(1.5)
 \t\twatermark.to_corner(DOWN+RIGHT, buff=0)\n\t\tself.play(FadeIn(watermark))\n\t\t"""
 
 def generateTexMobject(line):
-    retval = ' = TexMobject(r"' + line.split("\n")[0]+ '")\n\t\t'
+    ln = line.split("\n")[0]
+    words = ln.split(" ")
+    num_words = len(words)
+    if num_words < 8:
+        retval = ' = TexMobject(r"' + line.split("\n")[0]+ '" )\n\t\t'
+    else:
+        retval = ' = TexMobject(r"' + " ".join(words[:9]) + ' \linebreak ' + " ".join(words[9:]) + '" )\n\t\t'
     return retval
 
 def latex2Manim(latexArr,query,func):
@@ -53,13 +59,14 @@ def latex2Manim(latexArr,query,func):
     if len(latexArr) >= 1 :
         retval = retval + 'Solve' + generateTexMobject(latexArr[0])
         retval = retval + 'Solve.to_edge(UP)\n\t\t'+'self.play(Write(Solve))\n\t\t'
-        retval = retval + "align_mark = TextMobject( 'abs', fill_opacity=1)\n\t\t"
-        retval = retval + 'align_mark.to_edge(UP)\n\t\t'+'self.play(Write(align_mark))\n\t\t'
-        retval = retval + 'align_mark.move_to(2*DOWN)\n\t\t'
+        retval = retval + "align_mark = TexMobject( r'abs', fill_opacity=0.00,height=0.5)\n\t\t"
+        retval = retval + 'align_mark.next_to(Solve,DOWN)\n\t\t'#+'self.play(Write(align_mark))\n\t\t'
+        #retval = retval + 'align_mark.move_to(DOWN)\n\t\t'
         retval = retval + 'self.wait(1)\n\t\t'
         for i in range(1, len(latexArr)):
             retval = retval + 'R'+ str(i-1) + generateTexMobject(latexArr[i])
-            retval = retval + 'if R'+ str(i-1) + ".get_width() > 40:\n\t\t\tR"+ str(i-1) + ".stretch_to_fit_width(width=40)\n\t\t"
+            retval = retval + 'if R'+ str(i-1) + ".get_height() > 1:\n\t\t\tR"+ str(i-1) + ".set_height(height=1,stretch=False)\n\t\t"
+            retval = retval + 'if R'+ str(i-1) + ".get_width() > 12:\n\t\t\tR"+ str(i-1) + ".set_width(width=12,stretch=False)\n\t\t"
         for i in range(3):
             if sol_length > i:
                 if i == 0:
