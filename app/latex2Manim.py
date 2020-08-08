@@ -53,11 +53,13 @@ def latex2Manim(latexArr,query,func):
     if len(latexArr) >= 1 :
         retval = retval + 'Solve' + generateTexMobject(latexArr[0])
         retval = retval + 'Solve.to_edge(UP)\n\t\t'+'self.play(Write(Solve))\n\t\t'
-        retval += "align_mark = TextMobject( 'abs', fill_opacity=1)\n\t\talign_mark.to_edge(UP)\n\t\talign_mark.move_to(2*DOWN)\n\t\talign_mark.add()\n\t\t"
+        retval = retval + "align_mark = TextMobject( 'abs', fill_opacity=1)\n\t\t"
+        retval = retval + 'align_mark.to_edge(UP)\n\t\t'+'self.play(Write(align_mark))\n\t\t'
+        retval = retval + 'align_mark.move_to(2*DOWN)\n\t\t'
         retval = retval + 'self.wait(1)\n\t\t'
         for i in range(1, len(latexArr)):
             retval = retval + 'R'+ str(i-1) + generateTexMobject(latexArr[i])
-            retval = retval + 'if R'+ str(i-1) + ".get_width() > 30:\n\t\t\tR"+ str(i-1) + ".stretch_to_fit_width(width=30)\n\t\t"
+            retval = retval + 'if R'+ str(i-1) + ".get_width() > 40:\n\t\t\tR"+ str(i-1) + ".stretch_to_fit_width(width=40)\n\t\t"
         for i in range(3):
             if sol_length > i:
                 if i == 0:

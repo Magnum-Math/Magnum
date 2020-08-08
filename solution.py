@@ -15,74 +15,74 @@ class Solution(GraphScene):
 		align_mark.add()
 		self.wait(1)
 		R0 = TexMobject(r" x^{3} - x^{2} + 9 = 0")
-		if R0.get_width() > 25:
-			R0.stretch_to_fit_width(width=25)
+		if R0.get_width() > 30:
+			R0.stretch_to_fit_width(width=30)
 		R1 = TexMobject(r" Eliminate \ the \ quadratic \ term \ by \ substituting \ y = x - 1/3:")
-		if R1.get_width() > 25:
-			R1.stretch_to_fit_width(width=25)
+		if R1.get_width() > 30:
+			R1.stretch_to_fit_width(width=30)
 		R2 = TexMobject(r" 9 - (y + \frac{1}{3})^{2} + (y + \frac{1}{3})^{3} = 0")
-		if R2.get_width() > 25:
-			R2.stretch_to_fit_width(width=25)
+		if R2.get_width() > 30:
+			R2.stretch_to_fit_width(width=30)
 		R3 = TexMobject(r" Expand \ out \ terms \ of \ the \ left \ hand \ side:")
-		if R3.get_width() > 25:
-			R3.stretch_to_fit_width(width=25)
+		if R3.get_width() > 30:
+			R3.stretch_to_fit_width(width=30)
 		R4 = TexMobject(r" y^{3} - y/3 + 241/27 = 0")
-		if R4.get_width() > 25:
-			R4.stretch_to_fit_width(width=25)
+		if R4.get_width() > 30:
+			R4.stretch_to_fit_width(width=30)
 		R5 = TexMobject(r" Change \ coordinates \ by \ substituting \ y = z + \lambda/z, \ where \ \lambda \ is \ a \ constant \ value \ that \ will \ be \ determined \ later:")
-		if R5.get_width() > 25:
-			R5.stretch_to_fit_width(width=25)
+		if R5.get_width() > 30:
+			R5.stretch_to_fit_width(width=30)
 		R6 = TexMobject(r" 241/27 + \frac{1}{3} (-z - \lambda/z) + \frac{z + \lambda}{z}^3 = 0")
-		if R6.get_width() > 25:
-			R6.stretch_to_fit_width(width=25)
+		if R6.get_width() > 30:
+			R6.stretch_to_fit_width(width=30)
 		R7 = TexMobject(r" Multiply \ both \ sides \ by \ z^{3} \ and \ collect \ in \ terms \ of \ z:")
-		if R7.get_width() > 25:
-			R7.stretch_to_fit_width(width=25)
+		if R7.get_width() > 30:
+			R7.stretch_to_fit_width(width=30)
 		R8 = TexMobject(r" z^{6} + z^{4} (3 \lambda - \frac{1}{3}) + (241 z^{3})/27 + z^{2} (3 \lambda^{2} - \lambda/3) + \lambda^{3} = 0")
-		if R8.get_width() > 25:
-			R8.stretch_to_fit_width(width=25)
+		if R8.get_width() > 30:
+			R8.stretch_to_fit_width(width=30)
 		R9 = TexMobject(r" Substitute \lambda = \frac{1}{9} \ and \ then \ u = z^{3}, \ yielding \ a \ quadratic \ equation \ in \ the \ variable \ u:")
-		if R9.get_width() > 25:
-			R9.stretch_to_fit_width(width=25)
+		if R9.get_width() > 30:
+			R9.stretch_to_fit_width(width=30)
 		R10 = TexMobject(r" u^{2} + (241 u)/27 + \frac{1}{729} = 0")
-		if R10.get_width() > 25:
-			R10.stretch_to_fit_width(width=25)
+		if R10.get_width() > 30:
+			R10.stretch_to_fit_width(width=30)
 		R11 = TexMobject(r" Find \ the \ positive \ solution \ to \ the \ quadratic \ equation:")
-		if R11.get_width() > 25:
-			R11.stretch_to_fit_width(width=25)
+		if R11.get_width() > 30:
+			R11.stretch_to_fit_width(width=30)
 		R12 = TexMobject(r" u = \frac{1}{54} (9 \sqrt{717} - 241)")
-		if R12.get_width() > 25:
-			R12.stretch_to_fit_width(width=25)
+		if R12.get_width() > 30:
+			R12.stretch_to_fit_width(width=30)
 		R13 = TexMobject(r" Substitute \ back \ for \ u = z^{3}:")
-		if R13.get_width() > 25:
-			R13.stretch_to_fit_width(width=25)
+		if R13.get_width() > 30:
+			R13.stretch_to_fit_width(width=30)
 		R14 = TexMobject(r" z^{3} = \frac{1}{54} (9 \sqrt{717} - 241)")
-		if R14.get_width() > 25:
-			R14.stretch_to_fit_width(width=25)
+		if R14.get_width() > 30:
+			R14.stretch_to_fit_width(width=30)
 		R15 = TexMobject(r" Taking \ cube \ roots \ gives \ (9 \sqrt{717} - 241)^{1/3} \times \ the \ third \ roots \ of \ unity:")
-		if R15.get_width() > 25:
-			R15.stretch_to_fit_width(width=25)
+		if R15.get_width() > 30:
+			R15.stretch_to_fit_width(width=30)
 		R16 = TexMobject(r"NEWWWWWWadlfh")
-		if R16.get_width() > 25:
-			R16.stretch_to_fit_width(width=25)
+		if R16.get_width() > 30:
+			R16.stretch_to_fit_width(width=30)
 		R17 = TexMobject(r" Substitute \ each \ value \ of \ z \ into \ y = z + 1/(9 z):")
-		if R17.get_width() > 25:
-			R17.stretch_to_fit_width(width=25)
+		if R17.get_width() > 30:
+			R17.stretch_to_fit_width(width=30)
 		R18 = TexMobject(r" y = \frac{1}{3} ((9 \sqrt{717} - 241) / 2)^{1/3} - \frac{1}{3} (-1)^{2/3} (2/(241 - 9 \sqrt{717}))^{1/3} or y = \frac{1}{3} ((-2) / (241 - 9 \sqrt{717}))^{1/3} - \frac{1}{3} ((-1) / 2)^{1/3} (9 \sqrt{7")
-		if R18.get_width() > 25:
-			R18.stretch_to_fit_width(width=25)
+		if R18.get_width() > 30:
+			R18.stretch_to_fit_width(width=30)
 		R19 = TexMobject(r" Bring \ each \ solution \ to \ a \ common \ denominator \ and \ simplify:")
-		if R19.get_width() > 25:
-			R19.stretch_to_fit_width(width=25)
+		if R19.get_width() > 30:
+			R19.stretch_to_fit_width(width=30)
 		R20 = TexMobject(r" y = ((18 \sqrt{717} - 482)^{1/3} - (2 (-1)^{2/3}))/(241 - 9 \sqrt{717}^{1/3}))/(3^{2/3} 2^{2/3}) or y = ((-9 \sqrt{717} - 241)^{1/3} - (-1)^{1/3} (9 \sqrt{717} - 241)^{1/3}))/(3^{2/3} 2^{1/3})")
-		if R20.get_width() > 25:
-			R20.stretch_to_fit_width(width=25)
+		if R20.get_width() > 30:
+			R20.stretch_to_fit_width(width=30)
 		R21 = TexMobject(r" Substitute \ back \ for \ x = y + 1/3:")
-		if R21.get_width() > 25:
-			R21.stretch_to_fit_width(width=25)
+		if R21.get_width() > 30:
+			R21.stretch_to_fit_width(width=30)
 		R22 = TexMobject(r" x = ((18 \sqrt{717} - 482)^{1/3} - (2 (-1)^{2/3})/(241 - 9 \sqrt{717}))^{1/3})/(3^{2/3} 2^{2/3}) + 1/3 \ or \ x = ((-241 - 9 \sqrt{717})(-1)^{1/3} (9 \sqrt{717} - 241)^{1/3})/(3^{2/3} 2^{1/3")
-		if R22.get_width() > 25:
-			R22.stretch_to_fit_width(width=25)
+		if R22.get_width() > 30:
+			R22.stretch_to_fit_width(width=30)
 		R0.next_to(align_mark,DOWN)
 		self.play(Write(R0))
 		self.wait(1)
