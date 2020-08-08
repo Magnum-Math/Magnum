@@ -1,10 +1,11 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[13]:
+# In[1]:
 
 
 import openai
+import os 
 from pathlib import Path
 data_folder = Path(os.getcwd())
 openai.api_key = open(data_folder / 'api_keys/openai').readline().rstrip('\n')
@@ -42,7 +43,7 @@ if selection == "yes":
         print(line)
 
 
-# In[16]:
+# In[4]:
 
 
 import os
@@ -64,7 +65,7 @@ def read_file(path_to_file):
 # Construct GPT object and show some examples
 gpt = GPT(engine="davinci",
           temperature=0.01,
-          max_tokens=300)
+          max_tokens=150)
 
 
 # reade file and convert it to source string and target string tuples
@@ -92,7 +93,7 @@ for src_path, target_path in zip(source_names,target_names):
         
 
 
-# In[18]:
+# In[5]:
 
 
 import os
@@ -143,7 +144,7 @@ for src_path, target_path in zip(source_names,target_names):
 print("")
 
 
-# In[19]:
+# In[6]:
 
 
 # Converting RAW_TEXT Query to Python Function:
@@ -153,7 +154,7 @@ python_func = python_func[7:]
 print("Interpereted python function is", python_func)
 
 
-# In[20]:
+# In[7]:
 
 
 # Converting RAW_TEXT to Latex:
@@ -167,7 +168,7 @@ for i in tqdm(range(len(RAW_TEXT))) :
 print("Intermediate LateX generated")
 
 
-# In[21]:
+# In[8]:
 
 
 latex_code = []
@@ -176,10 +177,21 @@ for line in response:
     if text.isspace() or text == "":
         continue
     else:
-        latex_code.append(text + "\n")
+        latex_code.append(text +"\n")
 
 
-# In[22]:
+# In[9]:
+
+
+"""
+latex_code = read_file('./latex.txt')
+for i in range(len(latex_code)):
+    latex_code[i] += "\n"
+"""
+print()
+
+
+# In[10]:
 
 
 if selection == "yes":
@@ -187,7 +199,13 @@ if selection == "yes":
         print(line, end="")
 
 
-# In[23]:
+# In[11]:
+
+
+#latex_code[17] = "NEWWWWWWadlfh"
+
+
+# In[26]:
 
 
 from app import latex2Manim
@@ -200,7 +218,7 @@ if selection == "yes":
 print("Manim Code Generated")
 
 
-# In[25]:
+# In[27]:
 
 
 fptr =  open(data_folder / "solution.py", "w") 
@@ -209,13 +227,13 @@ fptr.close()
 print("Manim Code saved at {}/solution.py".format(data_folder))
 
 
-# In[ ]:
+# In[14]:
 
 
 #!manim solution.py Solution -pl --media_dir "./Animations"
 
 
-# In[27]:
+# In[15]:
 
 
 import os
@@ -279,10 +297,4 @@ a = func('x**2')
 
 
 [a(i) for i in range(5)]
-
-
-# In[ ]:
-
-
-
 
