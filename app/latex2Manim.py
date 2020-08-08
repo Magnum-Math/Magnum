@@ -1,4 +1,5 @@
 import math
+from math import *
 config = """
 \tCONFIG = {
 \t\t'x_min':           -10,
@@ -14,20 +15,14 @@ config = """
 construct_graph = """self.setup_axes(animate=True)
 \t\tfunc_graph = self.get_graph(self.func, self.function_color)
 \t\tself.play(ShowCreation(func_graph))
-\t\tself.wait(2)\n\t\t"""
+\t\tself.wait(3)\n\t\tself.play(FadeOut(func_graph))\n\t\tself.play(FadeOut(self.axes))\n\t\t"""
 
 watermark="""\n\t\twatermark = ImageMobject("./assets/water_mark.png",opacity=0.7)
 \t\twatermark.scale(1.5)
 \t\twatermark.to_corner(DOWN+RIGHT, buff=0)\n\t\tself.play(FadeIn(watermark))\n\t\t"""
 
 def generateTexMobject(line):
-    ln = line.split("\n")[0]
-    words = ln.split(" ")
-    num_words = len(words)
-    if num_words < 8:
-        retval = ' = TexMobject(r"' + line.split("\n")[0]+ '" )\n\t\t'
-    else:
-        retval = ' = TexMobject(r"' + " ".join(words[:9]) + ' \linebreak ' + " ".join(words[9:]) + '" )\n\t\t'
+    retval = ' = TexMobject(r"' + line.split("\n")[0]+ '" )\n\t\t'
     return retval
 
 def latex2Manim(latexArr,query,func):
@@ -36,14 +31,14 @@ def latex2Manim(latexArr,query,func):
         graph = True
         print("A Graph will be generated automatically")
     else:
-        graph = False
         print("Do you want to generate a graph for {}? yes/no".format(query))
-        selection = input()
+        selection = input().strip("\n")
         while selection not in ["yes", "no"]:
-            selection = input()
+            selection = input().strip("\n")
             print("Would you like to print intermediate code results? yes/no")
+            
         if selection == "yes":
-            graph == True
+            graph = True
 
 
     retval = 'from manimlib.imports import *\nfrom math import *\n'
@@ -92,6 +87,7 @@ def latex2Manim(latexArr,query,func):
             if i >= 0:
                 retval += 'self.play(FadeOut(R'+ str(i) +'))\n\t\t'
         retval = retval + 'self.play(FadeOut(Solve))\n\t\t'
+        
         if graph == True:
             retval += construct_graph
     else:
@@ -105,7 +101,8 @@ def latex2Manim(latexArr,query,func):
     #if graph != True:
         #retval = retval + 'self.play(FadeOut(R0))'
 
-
+    retval += "self.play(ApplyMethod(watermark.next_to,align_mark,DOWN))\n\t\t"
+    retval += "self.play(FadeOut(watermark))\n"
     if graph == True:
         retval = retval + makeGraph(func)
     return retval
