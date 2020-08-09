@@ -1,5 +1,5 @@
-# AI Math Animator powered by GPT-3 and Wolfram Alpha
-## Visualize Math solutions 
+# MAGNUM (AI Math Animator powered by GPT-3 and Wolfram Alpha)
+## Visualize Beautiful Math solutions 
 
 Initial release date: 8 Aug 2020
 
@@ -10,8 +10,8 @@ The goal of this project is to enable users to create cool web demos using the n
 
 This project addresses the following issues:
 
-1. Goal1 
-2. Goal2
+1. Create an end to end package using wolfram and GPT3 to visualize math soultions to user questions.
+2. Create a standaone package which enables you to convert latex into beautiful animations without any knowledge of manim.
 Here is a simple example   
 Note that this repository is currently not intended for production use and has limited capabelities .
 
@@ -64,12 +64,31 @@ output:
 output: \int_a^b f(x) dx
 
 ``` 
+### Using Custom Priming Data
+We have provided you with the basic priming data for the text to manim GPT model. 
+The Latex conversion is slightly non standard as the text is interperetd in tex so to introduct spacing we have to inserte a " / ". 
+
+If you wish to provide your own examples for priming you can edit the files in the Training_Examples directoriy. 
+
+### A note if you are using non standard latex packages 
+We use Manim to animate the solution from wolfram follow the instructions at [manim github page](https://github.com/3b1b/manim) to get manim up and running 
+
+If your latex code uses non-standard or additional packages you will need the manim source code and not the pip version 
+
+Again the instructions to install the required version are given on [manim github page](https://github.com/3b1b/manim) or you can follow [the manim docs here](https://readthedocs.org/projects/manim/downloads/pdf/latest/)
+
+For non standard latex packages follow [this amazing video](https://www.youtube.com/watch?v=VPYmZWTjHoU)
+
+### Rendering options for manim 
+Manim provides you with a full array of rendering options from setting aspect ratios to resoultion and framerate. 
+
+Follow the [video here to get insight on all the options](https://www.youtube.com/watch?v=d_2V5mC2hx0)
 
 ## Contributions
 
 We actively encourage people to contribute by adding their own examples or even adding functionalities to the modules. Please make a pull request if you would like to add something, or create an issue if you have a question. We will update the contributors list on a regular basis.
 
-Please *do not* leave your secret key in plaintext in your pull request!
+Please *do not* leave your secret key and/or appif in plaintext in your pull request!
 
 ## Authors
 
