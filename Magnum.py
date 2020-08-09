@@ -25,7 +25,7 @@
 # 
 # Follow the [video here to get insight on all the options](https://www.youtube.com/watch?v=d_2V5mC2hx0)
 
-# In[ ]:
+# In[1]:
 
 
 import openai
@@ -36,7 +36,7 @@ openai.api_key = open(data_folder / 'api_keys/openai').readline().rstrip('\n')
 print(data_folder)
 
 
-# In[ ]:
+# In[2]:
 
 
 from app import apiWrapper
@@ -59,7 +59,7 @@ print("Query Received is ", Query)
 print("Solution Generated")
 
 
-# In[ ]:
+# In[3]:
 
 
 if selection == "yes":
@@ -67,7 +67,7 @@ if selection == "yes":
         print(line)
 
 
-# In[ ]:
+# In[4]:
 
 
 import os
@@ -117,7 +117,7 @@ for src_path, target_path in zip(source_names,target_names):
         
 
 
-# In[ ]:
+# In[5]:
 
 
 # Construct GPT object and show some examples
@@ -152,17 +152,18 @@ for src_path, target_path in zip(source_names,target_names):
 print("")
 
 
-# In[ ]:
+# In[6]:
 
 
 # Converting RAW_TEXT Query to Python Function:
 print("Attempting to convert input query to graphable python function")
 python_func = gpt_py.get_top_reply(Query)
 python_func = python_func[7:]
+python_func = python_func.split("/n")[0]
 print("Interpereted python function is", python_func)
 
 
-# In[ ]:
+# In[7]:
 
 
 # Converting RAW_TEXT to Latex:
@@ -176,7 +177,7 @@ for i in tqdm(range(len(RAW_TEXT))) :
 print("Intermediate LateX generated")
 
 
-# In[ ]:
+# In[8]:
 
 
 latex_code = []
@@ -188,37 +189,44 @@ for line in response:
         latex_code.append(text +"\n")
 
 
-# In[ ]:
+# In[9]:
 
 
-f = open('./latex.txt',w)
+f = open('./latex.txt','w')
 for i in range(len(latex_code)):
     f.write(latex_code[i])
 f.close()
 
 
-# In[ ]:
+# In[10]:
 
 
 if selection == "yes":
     for line in latex_code:
         print(line, end="")
+    
 
 
-# In[ ]:
+# In[11]:
+
+
+python_func = python_func.split("\n")[0]
+
+
+# In[12]:
 
 
 from app import latex2Manim
 import importlib
 importlib.reload(latex2Manim)
 print("Converting Latex to Maxnim Code")
-manim_code = latex2Manim.latex2Manim(latex_code,Query ,python_func)
+manim_code = latex2Manim.latex2Manim(latex_code, python_func ,python_func)
 if selection == "yes":
     print(manim_code)
 print("Manim Code Generated")
 
 
-# In[ ]:
+# In[13]:
 
 
 fptr =  open(data_folder / "solution.py", "w") 
@@ -227,18 +235,18 @@ fptr.close()
 print("Manim Code saved at {}/solution.py".format(data_folder))
 
 
-# In[ ]:
+# In[16]:
 
 
 # if you are rendering inside the notebook use the cell below
-#!manim solution.py Solution -pl --media_dir "./Animations"
+get_ipython().system('manim solution.py Solution -pl --media_dir "./Animations"')
 
 
-# In[ ]:
+# In[15]:
 
 
 # code to make the magnum.py file
-
+"""
 import os
 print("Starting to Animate. Arguments for manim if any?")
 args = input()
@@ -247,4 +255,5 @@ if retval == 0:
     print("Animation Completed check ./Animations/video for output")
 else:
     print("Animation Error Check Manim Logs!!")
+"""
 
