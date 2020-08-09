@@ -1,7 +1,31 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[1]:
+# ## Convert your Math Question to Animated solution
+# This is the main notebook for the Magnum Project 
+# The installation instructions for all the dependencies are in the readme at our [github repository](https://github.com/GPT-3-Manim/AI-Math-Animator-GPT3) 
+# 
+# ### Using Custom Priming Data
+# We have provided you with the basic priming data for the text to manim GPT model. 
+# The Latex conversion is slightly non standard as the text is interperetd in tex so to introduct spacing we have to inserte a " / ". 
+# 
+# If you wish to provide your own examples for priming you can edit the files in the Training_Examples directoriy. 
+# 
+# ### A note if you are using non standard latex packages 
+# We use Manim to animate the solution from wolfram follow the instructions at [manim github page](https://github.com/3b1b/manim) to get manim up and running 
+# 
+# If your latex code uses non-standard or additional packages you will need the manim source code and not the pip version 
+# 
+# Again the instructions to install the required version are given on [manim github page](https://github.com/3b1b/manim) or you can follow [the manim docs here](https://readthedocs.org/projects/manim/downloads/pdf/latest/)
+# 
+# For non standard latex packages follow [this amazing video](https://www.youtube.com/watch?v=VPYmZWTjHoU)
+# 
+# ### Rendering options 
+# Manim provides you with a full array of rendering options from setting aspect ratios to resoultion and framerate. 
+# 
+# Follow the [video here to get insight on all the options](https://www.youtube.com/watch?v=d_2V5mC2hx0)
+
+# In[ ]:
 
 
 import openai
@@ -12,7 +36,7 @@ openai.api_key = open(data_folder / 'api_keys/openai').readline().rstrip('\n')
 print(data_folder)
 
 
-# In[2]:
+# In[ ]:
 
 
 from app import apiWrapper
@@ -35,7 +59,7 @@ print("Query Received is ", Query)
 print("Solution Generated")
 
 
-# In[3]:
+# In[ ]:
 
 
 if selection == "yes":
@@ -43,7 +67,7 @@ if selection == "yes":
         print(line)
 
 
-# In[4]:
+# In[ ]:
 
 
 import os
@@ -93,23 +117,7 @@ for src_path, target_path in zip(source_names,target_names):
         
 
 
-# In[5]:
-
-
-import os
-import sys
-sys.path.append(os.getcwd())
-
-from api import GPT, Example
-from glob import glob
-def read_file(path_to_file):
-    retval = ""
-    file = open(path_to_file)
-    retval = file.readlines()
-    file.close()
-    #Make sure the new line character is not read it throws the model off     
-    retval = [x.split("/n")[0][:-1] for x in retval]
-    return retval
+# In[ ]:
 
 
 # Construct GPT object and show some examples
@@ -144,7 +152,7 @@ for src_path, target_path in zip(source_names,target_names):
 print("")
 
 
-# In[6]:
+# In[ ]:
 
 
 # Converting RAW_TEXT Query to Python Function:
@@ -154,7 +162,7 @@ python_func = python_func[7:]
 print("Interpereted python function is", python_func)
 
 
-# In[7]:
+# In[ ]:
 
 
 # Converting RAW_TEXT to Latex:
@@ -168,7 +176,7 @@ for i in tqdm(range(len(RAW_TEXT))) :
 print("Intermediate LateX generated")
 
 
-# In[8]:
+# In[ ]:
 
 
 latex_code = []
@@ -180,18 +188,16 @@ for line in response:
         latex_code.append(text +"\n")
 
 
-# In[9]:
+# In[ ]:
 
 
-"""
-latex_code = read_file('./latex.txt')
+f = open('./latex.txt',w)
 for i in range(len(latex_code)):
-    latex_code[i] += "\n"
-"""
-print()
+    f.write(latex_code[i])
+f.close()
 
 
-# In[10]:
+# In[ ]:
 
 
 if selection == "yes":
@@ -199,13 +205,7 @@ if selection == "yes":
         print(line, end="")
 
 
-# In[11]:
-
-
-#latex_code[17] = "NEWWWWWWadlfh"
-
-
-# In[26]:
+# In[ ]:
 
 
 from app import latex2Manim
@@ -218,7 +218,7 @@ if selection == "yes":
 print("Manim Code Generated")
 
 
-# In[27]:
+# In[ ]:
 
 
 fptr =  open(data_folder / "solution.py", "w") 
@@ -227,14 +227,17 @@ fptr.close()
 print("Manim Code saved at {}/solution.py".format(data_folder))
 
 
-# In[14]:
+# In[ ]:
 
 
+# if you are rendering inside the notebook use the cell below
 #!manim solution.py Solution -pl --media_dir "./Animations"
 
 
-# In[15]:
+# In[ ]:
 
+
+# code to make the magnum.py file
 
 import os
 print("Starting to Animate. Arguments for manim if any?")
@@ -244,57 +247,4 @@ if retval == 0:
     print("Animation Completed check ./Animations/video for output")
 else:
     print("Animation Error Check Manim Logs!!")
-
-
-# In[ ]:
-
-
-"""
-# Script to find and replace spaces with " / " in files 
-target_names = [item for item in sorted(glob("./Training_Example/latex/*"))]
-retval = ""
-for path_to_file in target_names:
-    print(path_to_file)
-    temp = input()
-    if temp == "yes":
-
-        file = open(path_to_file)
-        retval = file.readlines()
-        file.close()
-        for i in range(len(retval)):
-            print(retval[i])
-            x = input()
-            if x != '0':
-                retval[i] = retval[i].replace(" ", " \ ")
-        retval = [x.split("/n")[0][:-1] for x in retval]
-    #print(retval)
-
-"""
-
-
-# In[ ]:
-
-
-"""for l in retval:
-    print (l)"""
-
-
-# In[ ]:
-
-
-def func(x_in):
-		f = lambda x : eval(x_in)
-		return f
-
-
-# In[ ]:
-
-
-a = func('x**2')
-
-
-# In[ ]:
-
-
-[a(i) for i in range(5)]
 
