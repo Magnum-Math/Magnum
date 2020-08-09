@@ -25,8 +25,9 @@ def generateTexMobject(line):
     retval = ' = TexMobject(r"' + line.split("\n")[0]+ '" )\n\t\t'
     return retval
 
-def latex2Manim(latexArr,query = "" ,func = None):
+def latex2Manim(latexArr, query = "" ,func = None):
     graph = False
+    query = query.split("/n")[0]
     if "plot" in list(query.split(" ")):
         graph = True
         print("A Graph will be generated automatically")

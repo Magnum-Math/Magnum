@@ -10,3 +10,5 @@ plot csc(x)
 plot x + y = 10
 29 x = 19 y + 104 and plot 
 43 x^3 - 34 x^2 + 23 x + 21 and plot 
+x - 9 = 0
+x = 4
