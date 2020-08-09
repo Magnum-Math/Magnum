@@ -13,3 +13,38 @@ make sure that the respective soure and target pairs are on the same line in the
 
 ### Testing_text
 used for internal testing 
+
+
+## A simple text to Latex priminng example (For Explanation)
+**Note Each line is a priming example in itself** the current GPT3 model is limited to 2049 tokens, so the amout of priming data that can be provided is limited. It's recommended not to add redundant examples
+```text
+x^2 - 2 x - 6 = 0
+Add 6 to both sides:
+x^2 - 2 x = 6
+Add 1 to both sides:
+x^2 - 2 x + 1 = 7
+Write the left hand side as a square:
+(x - 1)^2 = 7
+Take the square root of both sides:
+x - 1 = sqrt(7) or x - 1 = -sqrt(7)
+Add 1 to both sides:
+x = 1 + sqrt(7) or x - 1 = -sqrt(7)
+Add 1 to both sides:
+Answer:  x = 1 + sqrt(7) or x = 1 - sqrt(7)
+```
+
+```latex
+x^{2} - 2 x - 6 = 0
+Add 6 \ to \ both \ sides:
+x^{2} - 2 x = 6
+Add 1 \ to \ both \ sides:
+x^{2} - 2 x + 1 = 7
+Write \ the \ left \ hand \ side \ as \ a \ square:
+(x - 1)^{2} = 7
+Take \ the \ square \ root \ of \ both \ sides:
+x - 1 = \sqrt{7} \ or \ x - 1 = -\sqrt{7}
+Add 1 \ to \ both \ sides:
+x = 1 + \sqrt{7} \ or \ x - 1 = -\sqrt{7}
+Add 1 \ to \ both \ sides:
+Answer: x = 1 + \sqrt{7} \ or \ x = 1 - \sqrt{7}
+```
