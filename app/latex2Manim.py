@@ -25,22 +25,24 @@ def generateTexMobject(line):
     retval = ' = TexMobject(r"' + line.split("\n")[0]+ '" )\n\t\t'
     return retval
 
-def latex2Manim(latexArr,query,func):
+def latex2Manim(latexArr,query = "" ,func = None):
     graph = False
     if "plot" in list(query.split(" ")):
         graph = True
         print("A Graph will be generated automatically")
     else:
-        print("Do you want to generate a graph for {}? yes/no".format(query))
+        print("Do you want to generate a graph for {}? yes/no".format(str(query)))
         selection = input().strip("\n")
         while selection not in ["yes", "no"]:
             selection = input().strip("\n")
-            print("Would you like to print intermediate code results? yes/no")
-            
+            print("Do you want to generate a graph for {}? yes/no".format(str(query)))
         if selection == "yes":
             graph = True
-
-
+        else:
+            selection = input("Do you wish to graph a custom fnction? yes/no")
+            if selection == "yes":
+                func = input("Input the inline python function")
+                query = func
     retval = 'from manimlib.imports import *\nfrom math import *\n'
     retval += 'class Solution(GraphScene):'
     if graph == True:
