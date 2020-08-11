@@ -239,14 +239,14 @@ print("Manim Code saved at {}/solution.py".format(data_folder))
 
 
 # if you are rendering inside the notebook use the cell below
-get_ipython().system('manim solution.py Solution -pl --media_dir "./Animations"')
+#get_ipython().system('manim solution.py Solution -pl --media_dir "./Animations"')
 
 
 # In[15]:
 
 
 # code to make the magnum.py file
-"""
+
 import os
 print("Starting to Animate. Arguments for manim if any?")
 args = input()
@@ -255,5 +255,5 @@ if retval == 0:
     print("Animation Completed check ./Animations/video for output")
 else:
     print("Animation Error Check Manim Logs!!")
-"""
+
 
