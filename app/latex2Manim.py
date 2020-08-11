@@ -15,7 +15,7 @@ config = """
 construct_graph = """self.setup_axes(animate=True)
 \t\tfunc_graph = self.get_graph(self.func, self.function_color)
 \t\tself.play(ShowCreation(func_graph))
-\t\tself.wait(3)\n\t\tself.play(FadeOut(func_graph))\n\t\tself.play(FadeOut(self.axes))\n\t\t"""
+	\n\t\tself.play(FadeOut(func_graph))\n\t\tself.play(FadeOut(self.axes))\n\t\t"""
 
 watermark="""\n\t\twatermark = ImageMobject("./assets/water_mark.png",opacity=0.7)
 \t\twatermark.scale(1.5)
@@ -86,6 +86,7 @@ def latex2Manim(latexArr, query = "" ,func = None):
             #retval = retval + 'self.play(\n\t\tself.wait(2)\n\t\t'
 
         ## Fade out every step
+        retval += 'self.wait(2)\n\t\t'
         for i in range(sol_length-1,sol_length-4,-1):
             if i >= 0:
                 retval += 'self.play(FadeOut(R'+ str(i) +'))\n\t\t'
