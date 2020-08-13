@@ -1,22 +1,22 @@
 ## Training Examples
-The directory contains the priming data for both the gpt instances 
+The directory contains the priming data for both the GPT-3 instances.
 
 ### text2latex 
-Contains subdirectories for source and target for the GPT model responsibe to convert RAW-TEXT from Wolfram to LaTEx 
-if you wish to add or modify the priming data edit the corrosponding source and target text files. 
-make sure that the respective soure and target pairs are on the same line in the text files
+Contains subdirectories for source and target for the GPT-3 model responsibe to convert RAW-TEXT from Wolfram Alpha API to LaTeX .
+If you wish to add or modify the priming data, edit the corresponding source and target text files. 
+Make sure that the respective source and target pairs are on the same lines in the text files.
 
 ### text2Python
-Contains subdirectories for source and target for the GPT model responsibe to convert RAW-TEXT from Wolfram to inline Python function used for graphing 
-if you wish to add or modify the priming data edit the corrosponding source and target text files. 
-make sure that the respective soure and target pairs are on the same line in the text files
+Contains subdirectories for source and target for the GPT-3 model responsibe to convert RAW-TEXT from Wolfram Alpha API to inline Python function used for Graphing. 
+If you wish to add or modify the priming data, edit the corresponding source and target text files. 
+Make sure that the respective source and target pairs are on the same lines in the text files.
 
 ### Testing_text
-used for internal testing 
+(Used for internal testing)
 
 
 ## A simple text to Latex priminng example (For Explanation)
-**Note Each line is a priming example in itself** the current GPT3 model is limited to 2049 tokens, so the amout of priming data that can be provided is limited. It's recommended not to add redundant examples  
+**Note Each line is a priming example in itself** The current GPT3 model is limited to 2049 tokens, so the amount of priming data that can be provided is limited. It's recommended not to add redundant examples, If you have access to Fine-tuning API of OpenAI, then it is not a problem.  
 
 **Text**
 ```text
