@@ -2,17 +2,17 @@ x = i \sqrt{2} - 2 \ or \ x + 2 = -i \sqrt{2}
 Factor \ terms \ by \ grouping. x^{3} - 4 x^{2} + x - 4 = (x^{3} - 4 x^{2}) + (x - 4)
 \frac{d(x^{2} y^{4})}{dx}, \frac{d(x^{2} y^{4}}{dy}
 \sqrt{16 |x^{2} y^{3}|^{2} + 4 |x y^{4}|^{2}}
-Input:\int_{0}^{∞} \frac{\sin(x)}{x} dx = \frac{π}{2}≈1.5708
+Input:\int_{0}^{\infty} \frac{\sin(x)}{x} dx = \frac{\pi}{2}≈1.5708
 Input:\frac{d^{2}}{dx^{2}}(\sin(2 x)) = -4 \sin(2 x)
-The \ domain \ of -4 \sin(2 x) \ on \ 0 \leq x<π \ is \ (x \in R : 0 \leq x<π):
+The \ domain \ of -4 \sin(2 x) \ on \ 0 \leq x<\pi \ is \ (x \in R : 0 \leq x<\pi):
 \lim_{x \to 0^{+}} \frac{x}{|x|} = \lim_{x \to 0^{+}} \frac{\frac{ dx}{ dx}}{\frac{d}{ dx} |x|} = \lim_{x \to 0^{+}} \frac{1}{|x|'} 
 \sum_{j=0}^{n} (\frac{3}{4})^{j} = (\frac{4}{3})^{-n} (3^{-n} 4^{n + 1} - 3)
-\prod_{n=2}^{m} (1 - \frac{1}{n^{4}}) = \frac{((m + 1) \sinh(π) Γ(m + (1 - i)) Γ(m + (1 + i))}{4 π m^{3} Γ(m)^{2}}
--1 + \frac{1}{6} (x - π)^{2} - \frac{1}{120} (x - π)^{4} + \frac{(x - π)^{6}}{5040} - \frac{(x - π)^{8}}{362880} + \frac{(x - π)^{10}}{39916800} - \frac{(x - π)^{12}}{6227020800} + O((x - π)^{13})
-Find \ all \ λ \ such \ that \ | M - I λ |  = 0
+\prod_{n=2}^{m} (1 - \frac{1}{n^{4}}) = \frac{((m + 1) \sinh(\pi) \Gamma(m + (1 - i)) \Gamma(m + (1 + i))}{4 \pi m^{3} \Gamma(m)^{2}}
+-1 + \frac{1}{6} (x - \pi)^{2} - \frac{1}{120} (x - \pi)^{4} + \frac{(x - \pi)^{6}}{5040} - \frac{(x - \pi)^{8}}{362880} + \frac{(x - \pi)^{10}}{39916800} - \frac{(x - \pi)^{12}}{6227020800} + O((x - \pi)^{13})
+Find \ all \ \lambda \ such \ that \ | M - I \lambda |  = 0
 Res_(z = \frac{1}{2} (-5 + i\sqrt{3}))(\frac{z^{2} - 4}{(z - 2)^{4}} (z^{2} + 5z + 7)) = \frac{4i\sqrt{3} + i}{\sqrt{3}((\sqrt{3} + 9i)^{3}}
 Answer: A = \int_{-3}^{3} (6 - x^2 + |x|) dx = 27
-Input:ℱ_x[e^{-x^{2}}](ω)
+Input:\mathscr{F}_x[e^{-x^{2}}](\omega)
 70560 = 2×2×2×2×2×3×3×5×49 \ (49 \ is \ not \ divisible \ by \ 2, 3 \ or \ 5)
-\frac{1}{\sqrt{2 π}} \int_{-∞}^{∞} e^{-x^{2}} e^{i ω x} dx = \frac{e^{\frac{-ω^{2}}{4}}}{\sqrt{2}}
-Substitute \frac{ d^{2}}{ dx^{2}}(e^{λ x}) = λ^{2} e^{λ x}:
+\frac{1}{\sqrt{2 \pi}} \int_{-\infty}^{infty} e^{-x^{2}} e^{i \omega x} dx = \frac{e^{\frac{-\omega^{2}}{4}}}{\sqrt{2}}
+Substitute \frac{ d^{2}}{ dx^{2}}(e^{\lambda x}) = \lambda^{2} e^{\lambda x}:
