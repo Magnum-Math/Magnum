@@ -4,17 +4,18 @@
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 ## Visualize Beautiful Math solutions 
 ![Manim Logo](https://img.techpowerup.org/200811/magnum-2-1.png)
-Initial release date: 15 Aug 2020
 
-Fork Credits: The [gpt3-sandbox project](https://github.com/shreyashankar/gpt3-sandbox) was taken as the starting point for this project. We would like thank the authons of gp3-sandbox for all there help :)
+Initial release date: 15 August 2020
+
+Fork Credits: The [gpt3-sandbox project](https://github.com/shreyashankar/gpt3-sandbox) was taken as the starting point for this project. We would like Thank the authons of GPT-3-Sandbox for all their help. :)
 ## Description
 
 The goal of this project is to create an Open Source toolkit that makes Math animations effortless. Either from a plain English query or from formatted LaTeX! NO PYTHON CODING NEEDED.
 
 This project addresses the following issues:
 
-1. Create an end to end package using wolfram and GPT3 to visualize math soultions to user questions.
-2. Create a standaone package which enables you to convert latex into beautiful animations without any knowledge of manim.
+1. Create an end to end package using Wolfram Alpha and GPT-3 to visualize Step-by-step Math soultions to user questions.
+2. Create a standalone package which enables you to convert LaTeX into beautiful animations without any knowledge of Manim.
 
 For full docs and detailed information, have a look at our website: https://magnum.shreenabh.com/ 
 
@@ -25,8 +26,8 @@ First, clone or fork this repository. Then to set up your virtual environment, d
 1. Create a virtual environment in the root directory: `python -m venv $ENV_NAME`
 2. Activate the virtual environment: ` source $ENV_NAME/bin/activate` (for MacOS, Unix, or Linux users) or ` .\ENV_NAME\Scripts\activate` (for Windows users)
 3. Install requirements: `pip install -r requirements.txt`
-4. To add your openai secret key: open the file called `openai` int the `api_keys` folder and add your seceret key there `$YOUR_SECRET_KEY`, where `$YOUR_SECRET_KEY` looks something like `'sk-somerandomcharacters'` (excluding quotes). If you are unsure what your secret key is, navigate to the [API docs](https://beta.openai.com/developer-quickstart) and copy the token displayed next to the "secret" key type.
-5. To add your wolfram alpha secret key: open the file called `appid` int the `api_keys` folder and add your seceret key there `$YOUR_SECRET_KEY`, where `$YOUR_SECRET_KEY` looks something like `'ZHR$%D-GET$%ASBF$'` (excluding quotes).
+4. To add your OpenAI Secret Key: Open the file called `openai` in the `api_keys` folder and add your Seceret Key there `$YOUR_SECRET_KEY`, where `$YOUR_SECRET_KEY` looks something like `'sk-somerandomcharacters'` (excluding quotes). If you are unsure what your secret key is, navigate to the [API docs](https://beta.openai.com/developer-quickstart) and copy the token displayed next to the "secret" key type.
+5. To add your Wolfram Alpha AppID: open the file called `appid` int the `api_keys` folder and add your AppID there `$YOUR_SECRET_KEY`, where `$YOUR_SECRET_KEY` looks something like `'ZHR$%D-GET$%ASBF$'` (excluding quotes).
 
 (For detailed Setup information for the no code playground, check our website)
 
@@ -53,19 +54,19 @@ output: \int_a^b f(x) dx
 
 ``` 
 ### Using Custom Priming Data
-We have provided you with the basic priming data for the text to manim GPT model. 
-The Latex conversion is slightly non standard as the text is interperetd in tex so to introduct spacing we have to inserte a " / ". 
+We have provided you with the basic priming data for the text to Manim GPT-3 model. 
+The LaTeX conversion is slightly non standard as the text is interperetd in TeX so to introduct spacing we have to insert a " / ". Another way of doing this is by explicitly declaring text as \text{Your Text Here}.
 
-If you wish to provide your own examples for priming you can edit the files in the Training_Examples directoriy. 
+If you wish to provide your own examples for priming you can edit the files in the "Training_Examples" directory. 
 
-### A note if you are using non standard latex packages 
-We use Manim to animate the solution from wolfram follow the instructions at [manim github page](https://github.com/3b1b/manim) to get manim up and running 
+### A note if you are using Non-Standard LaTeX packages 
+We use Manim to animate the solution from Wolfram. Follow the instructions at [manim github page](https://github.com/3b1b/manim) to get Manim up and running.
 
-If your latex code uses non-standard or additional packages you will need the manim source code and not the pip version 
+If your LaTeX code uses non-standard or additional packages you will need the manim source code and NOT the "pip" version .
 
-Again the instructions to install the required version are given on [manim github page](https://github.com/3b1b/manim) or you can follow [the manim docs here](https://readthedocs.org/projects/manim/downloads/pdf/latest/)
+Again the instructions to install the required version are given on [Manim github page](https://github.com/3b1b/manim) or you can follow [the Manim docs here](https://readthedocs.org/projects/manim/downloads/pdf/latest/)
 
-For non standard latex packages follow [this amazing video](https://www.youtube.com/watch?v=VPYmZWTjHoU)
+For non standard LaTeX packages, follow [this amazing video](https://www.youtube.com/watch?v=VPYmZWTjHoU)
 
 ### Rendering options for manim 
 Manim provides you with a full array of rendering options from setting aspect ratios to resoultion and framerate. 
