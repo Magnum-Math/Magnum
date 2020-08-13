@@ -1,6 +1,6 @@
 # MAGNUM (AI Math Animator powered by GPT-3 and Wolfram Alpha)
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-2-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 ## Visualize Beautiful Math solutions 
 ![Manim Logo](https://img.techpowerup.org/200811/magnum-2-1.png)
@@ -89,6 +89,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
 <table>
   <tr>
     <td align="center"><a href="http://shreenabh.com"><img src="https://avatars3.githubusercontent.com/u/62369422?v=4" width="100px;" alt=""/><br /><sub><b>Shreenabh Agrawal</b></sub></a><br /><a href="https://github.com/Magnum-Math/Magnum/issues?q=author%3AShreenabh664" title="Bug reports">🐛</a> <a href="https://github.com/Magnum-Math/Magnum/commits?author=Shreenabh664" title="Code">💻</a> <a href="#content-Shreenabh664" title="Content">🖋</a> <a href="https://github.com/Magnum-Math/Magnum/commits?author=Shreenabh664" title="Documentation">📖</a> <a href="#design-Shreenabh664" title="Design">🎨</a> <a href="#projectManagement-Shreenabh664" title="Project Management">📆</a></td>
+    <td align="center"><a href="https://mrselukar.github.io"><img src="https://avatars1.githubusercontent.com/u/35305019?v=4" width="100px;" alt=""/><br /><sub><b>Mayur Selukar</b></sub></a><br /><a href="https://github.com/Magnum-Math/Magnum/commits?author=mrselukar" title="Code">💻</a> <a href="https://github.com/Magnum-Math/Magnum/issues?q=author%3Amrselukar" title="Bug reports">🐛</a> <a href="https://github.com/Magnum-Math/Magnum/commits?author=mrselukar" title="Documentation">📖</a></td>
   </tr>
 </table>
 
