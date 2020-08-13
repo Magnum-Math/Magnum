@@ -1,0 +1,29 @@
+{
+  "files": [
+    "README.md"
+  ],
+  "imageSize": 100,
+  "commit": false,
+  "contributors": [
+    {
+      "login": "Shreenabh664",
+      "name": "Shreenabh Agrawal",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/62369422?v=4",
+      "profile": "http://shreenabh.com",
+      "contributions": [
+        "bug",
+        "code",
+        "content",
+        "doc",
+        "design",
+        "projectManagement"
+      ]
+    }
+  ],
+  "contributorsPerLine": 7,
+  "projectName": "Magnum",
+  "projectOwner": "Magnum-Math",
+  "repoType": "github",
+  "repoHost": "https://github.com",
+  "skipCi": true
+}
