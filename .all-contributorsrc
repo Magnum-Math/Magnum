@@ -18,6 +18,17 @@
         "design",
         "projectManagement"
       ]
+    },
+    {
+      "login": "mrselukar",
+      "name": "Mayur Selukar",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/35305019?v=4",
+      "profile": "https://mrselukar.github.io",
+      "contributions": [
+        "code",
+        "bug",
+        "doc"
+      ]
     }
   ],
   "contributorsPerLine": 7,
