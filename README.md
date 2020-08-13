@@ -1,6 +1,6 @@
 # MAGNUM (AI Math Animator powered by GPT-3 and Wolfram Alpha)
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-3-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-4-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 ## Visualize Beautiful Math solutions 
 ![Manim Logo](https://img.techpowerup.org/200811/magnum-2-1.png)
@@ -91,6 +91,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
     <td align="center"><a href="http://shreenabh.com"><img src="https://avatars3.githubusercontent.com/u/62369422?v=4" width="100px;" alt=""/><br /><sub><b>Shreenabh Agrawal</b></sub></a><br /><a href="https://github.com/Magnum-Math/Magnum/issues?q=author%3AShreenabh664" title="Bug reports">🐛</a> <a href="https://github.com/Magnum-Math/Magnum/commits?author=Shreenabh664" title="Code">💻</a> <a href="#content-Shreenabh664" title="Content">🖋</a> <a href="https://github.com/Magnum-Math/Magnum/commits?author=Shreenabh664" title="Documentation">📖</a> <a href="#design-Shreenabh664" title="Design">🎨</a> <a href="#projectManagement-Shreenabh664" title="Project Management">📆</a></td>
     <td align="center"><a href="https://mrselukar.github.io"><img src="https://avatars1.githubusercontent.com/u/35305019?v=4" width="100px;" alt=""/><br /><sub><b>Mayur Selukar</b></sub></a><br /><a href="https://github.com/Magnum-Math/Magnum/commits?author=mrselukar" title="Code">💻</a> <a href="https://github.com/Magnum-Math/Magnum/issues?q=author%3Amrselukar" title="Bug reports">🐛</a> <a href="https://github.com/Magnum-Math/Magnum/commits?author=mrselukar" title="Documentation">📖</a></td>
     <td align="center"><a href="https://github.com/Nanu00"><img src="https://avatars3.githubusercontent.com/u/66585423?v=4" width="100px;" alt=""/><br /><sub><b>Shantanu Deshmukh</b></sub></a><br /><a href="https://github.com/Magnum-Math/Magnum/commits?author=Nanu00" title="Code">💻</a> <a href="https://github.com/Magnum-Math/Magnum/issues?q=author%3ANanu00" title="Bug reports">🐛</a></td>
+    <td align="center"><a href="http://www.arvidhya.com"><img src="https://avatars3.githubusercontent.com/u/26987169?v=4" width="100px;" alt=""/><br /><sub><b>Kartik Kinge</b></sub></a><br /><a href="#ideas-kingekartik" title="Ideas, Planning, & Feedback">🤔</a></td>
   </tr>
 </table>
 
