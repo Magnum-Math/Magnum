@@ -3,7 +3,7 @@
 [![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 ## Visualize Beautiful Math solutions 
-
+![Manim Logo](https://img.techpowerup.org/200811/magnum-2-1.png)
 Initial release date: 15 Aug 2020
 
 Fork Credits: The [gpt3-sandbox project](https://github.com/shreyashankar/gpt3-sandbox) was taken as the starting point for this project. We would like thank the authons of gp3-sandbox for all there help :)
