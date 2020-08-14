@@ -7,7 +7,7 @@
 
 Initial release date: 15 August 2020
 
-Fork Credits: The [gpt3-sandbox project](https://github.com/shreyashankar/gpt3-sandbox) was taken as the starting point for this project. We would like to thank the authons of GPT-3-Sandbox for all their help. :)
+Fork Credits: The [gpt3-sandbox project](https://github.com/shreyashankar/gpt3-sandbox) was taken as the starting point for this project. We would like to thank the authors of GPT-3-Sandbox for all their help. :)
 ## Description
 
 The goal of this project is to create an Open Source toolkit that makes Math animations effortless. Either from a plain English query or from formatted LaTeX! NO PYTHON CODING NEEDED.
