@@ -16,7 +16,8 @@
         "content",
         "doc",
         "design",
-        "projectManagement"
+        "projectManagement",
+        "test"
       ]
     },
     {
