@@ -17,7 +17,11 @@ This project addresses the following issues:
 1. Create an end to end package using Wolfram Alpha and GPT-3 to visualize Step-by-step Math soultions to user questions.
 2. Create a standalone package which enables you to convert LaTeX into beautiful animations without any knowledge of Manim.
 
-For full docs and detailed information, have a look at our website: https://magnum.shreenabh.com/ 
+For full docs and detailed information, have a look at our website: https://magnum.shreenabh.com/ .
+
+## Magnum Lite
+
+Before we get to Setting up, we would like to point out that we have made a special NO-CODE + BROWSER-BASED (Cloud hosted) [Playground for Magnum Lite](https://colab.research.google.com/drive/1Vhyx39pztGeVthKrBZZRGVroEYMwh4T5?usp=sharing) (!). If you are not much into software and code, this might be a nice option for you. Have a look at the detailed comparison [here](https://magnum.shreenabh.com/benefits/getting-started).
 
 ## Setup
 
