@@ -150,6 +150,7 @@ def generate_config(func,x_range=[-10,10]):
 	return config
 
 """
+#Testing Script
 src = './2.txt'
 
 latex = readFile2Array(src)
